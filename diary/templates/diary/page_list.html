@@ -1,0 +1,20 @@
+{% extends './base.html' %}
+
+{% block page_container %}
+<h2>diary list page</h2>
+
+<ul>
+{% for page in pages %}
+    <li>
+        <div class="date">
+            <span>{{page.dt_created}}</span>
+        </div>
+        <h2>{{page.title}}</h2>
+        <div class="score">
+            <p>Feeling point</p>
+            <span>{{page.score}} point</span>
+        </div>
+    </li>
+{% endfor %}
+</ul>
+{% endblock page_container %}
