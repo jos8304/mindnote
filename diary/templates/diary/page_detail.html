@@ -1,0 +1,28 @@
+{% extends "./base.html" %}
+{% block page_container %}
+
+<div class="notetext">
+    <div class="text-box">
+        <h2>{{page.title}}</h2>
+        <div class="state">
+            <p>Feeling Status</p>
+            <span>{{page.feeling}}</span>
+        </div>
+        <div class="score">
+            <p>Feeling Score</p>
+            <span>{{page.score}} Point</span>
+        </div> 
+        <div class="date">
+            <div class="month-year">{{page.dt_created}}
+            </div>
+        </div>
+        <div class="detail">{{page.content | linebreaksbr}}</div>
+        <div class="notetext-btn">
+            <ul>
+                <li><a href="#">Delete</a></li>
+                <li><a href="#">Edit</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock page_container %}

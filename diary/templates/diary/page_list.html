@@ -6,14 +6,16 @@
 <ul>
 {% for page in pages %}
     <li>
-        <div class="date">
-            <span>{{page.dt_created}}</span>
-        </div>
-        <h2>{{page.title}}</h2>
-        <div class="score">
-            <p>Feeling point</p>
-            <span>{{page.score}} point</span>
-        </div>
+        <a href={% url "page_detail" page.id %}>
+            <div class="date">
+                <span>{{page.dt_created}}</span>
+            </div>
+            <h2>{{page.title}}</h2>
+            <div class="score">
+                <p>Feeling point</p>
+                <span>{{page.score}} point</span>
+            </div>
+        </a>
     </li>
 {% endfor %}
 </ul>
