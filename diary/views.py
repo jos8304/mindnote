@@ -51,3 +51,6 @@ def page_delete(request, page_id):
         return redirect('page-list')
     else:
         return render(request, 'diary/page_confirm_delete.html', {'page': page})
+
+def index(request):
+    return redirect('post-list')
