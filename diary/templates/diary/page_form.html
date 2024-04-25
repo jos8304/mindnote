@@ -1,9 +1,62 @@
+{% extends './base.html' %}
+{% load static %}
 
-<div class="notetext">
 
-    <form method='post'>{% csrf_token %}
-        {{form.as_ul}}
-        <input type='submit' value='submit'>
+<!-- [A] base 템플릿을 상속 합니다-->
+
+<!-- [B] content 블럭 처리 -->
+{% block content %}
+
+<div class="wrap-post">
+    <form method="post">{% csrf_token %}
+        <div class="editor">
+
+            <div class="input input-date">
+                <p>Date</p>
+                <!-- [C] 날짜 입력 form-->
+                
+            </div>
+
+            <div class="input input-score">
+                <p>Feeling score</p>
+                <!-- [D] 감정 점수 입력 form-->
+                <p>{{form.score}}</p>
+                {% for error in form.score.errors %}
+                    <p class="error">{{error}}</p>
+                {% endfor %}
+            </div>
+
+            <div class="input input-title">
+                <p>Title</p>
+                <!-- [E] 제목 입력 form-->
+                <p>{{form.title}}</p>
+                {% for error in form.title.errors %}
+                    <p class="error">{{error}}</p>
+                {% endfor %}
+            </div>
+
+            <div class="input input-state">
+                <p>Status</p>
+                <!-- [F] 감정 상태 입력 form-->
+                <p>{{form.feeling}}</p>
+                {% for error in form.feeling.errors %}
+                    <p class="error">{{error}}</p>
+                {% endfor %}
+            </div>
+
+            <!-- [G] 일기 내용 입력 form-->
+            <h3>Content</h3>
+            <p>{{form.content}}</p>
+            {% for error in form.content.errors %}
+                <p class="error">{{error}}</p>
+            {% endfor %} 
+
+            <div class="post-btn">
+                <input type="submit" value="Submit">
+            </div>
+            
+        </div>
     </form>
 </div>
-
+<!-- [B] content 블럭 처리 -->
+{% endblock content %}
