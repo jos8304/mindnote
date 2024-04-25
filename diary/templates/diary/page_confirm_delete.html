@@ -1,0 +1,23 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- [B] content 블럭 처리 -->
+<div class="wrap-delete">
+    <div class="delete-box">
+        <div class="note-info">
+            <p>&#123;</p>
+            <span class="note-date"><!--[C] 작성된 날짜 --></span>
+            <span class="note-title"><!--[D] 일기 제목 --></span>
+        </div>
+        <p>Should I erase this day?</p>
+        <form method='post'>{% csrf_token %}
+            <ul>
+                <li><input type="submit" value="Delete"></li>
+                <li><a href={% url "page-list" %}>Cancel</a></li>
+            </ul>
+        </form>
+    </div>
+</div>
+<!-- [B] content 블럭 처리 -->
+{% endblock content %}

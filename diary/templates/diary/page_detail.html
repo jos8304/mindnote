@@ -20,7 +20,7 @@
         <div class="detail">{{page.content | linebreaksbr}}</div>
         <div class="notetext-btn">
             <ul>
-                <li><a href="#">Delete</a></li>
+                <li><a href={% url "page-delete" page.id %}>Delete</a></li>
                 <li><a href={% url "page-update" page.id %}>Edit</a></li>
             </ul>
         </div>
